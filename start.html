@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트시작</title>
+    <style>
+        h1 {color: aqua;} /* 내부스타일시트 */
+    </style>
+    <script>
+        // 내부자바스크립트 작성위치-1 (head) -데이터불러오기
+        // h1 (error)
+    </script>
+    <!-- 외부 자바스크립트 작성 -->
+    <script src="./scripts/start.js"></script> <!-- script에 src들어갈시 <></>사이에 엔터금지! -->
+</head>
+<body>
+    <h1>제목</h1>
+    <!-- 기본 HTML 작성위치 (script는 맨 아래에만 배치하기) -->
+    <script>
+        //내부 자바스크립트 작성위치-2 (body) -html태그 읽은 후 동적처리
+        // h1 (ok)
+    </script>
+    <script src="./scripts/start.js"></script>
+</body>
+</html>
