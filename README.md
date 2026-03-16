@@ -133,3 +133,69 @@ ex) <button type="button" id="btn" onclick"prompt()"></button>
 * []대괄호를 사용 해서 각 데이터를 저장
 * 각 개별 값은 인덱스(index)로 접근하며 숫자는 0부터 인식
 * 데이터의 전체길이(lengh)는 1부터 인식
+# 함수
+## 1. 내장함수
+* js 내에 정의된 명령어
+* `prompt()`, `log`, 등..
+* `window.print();` 윈도우 생략가능
+* `window.confirm();` 확인/취소 창 실행
+* `window.location.href();` 다른 경로 이동
+* `window.open('url','_blank');` 새창(새탭)열기
+* `window.alert();` 경고메시지 띄우기
+## 2. 사용자정의함수
+* 함수준비 : `function 함수명(매개변수){반복 프로그래밍}`
+* 함수실행 : `함수명(매개변수);`
+    * 함수실행은 해당 함수 준비`{}`밖에서 해야한다!
+### 2-1. 매개변수
+* 반복되는 함수프로그래밍 안 데이터가 반복될때마다 달라질때 
+* 데이터의 반복개수만 생각해선 안되고 반복데이터가 같은지, 다른지를 판단해서 매개변수 수를 체크해야한다
+    * `5X4=(5*4), 5X5=(5*5), 5X6=(5*6)` 5가 두번 반복되지만 값이 같으므로 매개변수는 1개
+    * `function 함수명(매개변수생성){매개변수대입받는위치}`
+    * `함수명(매개변수에 값을 대입하는 위치);`
+## 3. 콜백함수 (함수종류X,사용방법O)
+* 함수준비A : `function A(매개변수){반복 프로그래밍}`
+* 함수준비B : `function B(매개변수){반복 프로그래밍}`
+    * 함수B를 함수A가 실행되는 조건 기준 B를 실행하고 싶다
+    * `function A(매개변수){ B(); }`
+    * `A();` : A가 실행되면 A안에 B가 함께 실행된다
+## DOM 요소 선택하기
+* DOM이란? HTML태그부터 태그 안 텍스트, 공백 노드 포함하는 요소
+1. `get~`
+* 실제 프로그래밍 사용 시 `query~`위주로 사용하거나 레거시코드 벤치마킹 등 
+사용 시 이해와 활용을 돕기 위해 간단히 알면 좋은 DOM 선택방식
+* `getElementsByTagName`
+    * `const 변수명 = document.getElementsByTagName('');`
+    * `변수명[index];`
+* `getElementsByClassName`
+    * `const 변수명 = document.getElementsByClassName('');`
+    * `변수명[index];`
+* `getElementsById`
+    * `const 변수명 = document.getElementById('');`
+    * `변수명;` 아이디는 단 1개이므로 인덱스 표시 필요없음
+2. `query~`
+* `querySelector`
+    * `const 변수명 = document.querySelector('태그명');`
+    * `const 변수명 = document.querySelector('.클래스명');`
+    * `const 변수명 = document.querySelector('#아이디명');`
+    * `const 변수명 = document.querySelector('대상:nth-child(1)');`
+    * `const 변수명 = document.querySelector('부모요소 > 자식요소');`
+    * CSS와 유사하게 `()`안 선택자를 작성할 수 있는 ES6 이후 DOM선택함수 읽는 순서 기준
+    가장 먼저 인식되는 대상이 변수에 저장됨
+* `querySelectorAll`
+    * `const 변수명 = document.querySelectorAll('2개 이상 존재하는 태그명');`
+    * `const 변수명 = document.querySelectorAll('2개 이상 존재하는 클래스명');`
+    * 아아디에는 사용하지 않고 태그 또는 클래스가 같은 부모 요소 안 2개 이상 존재시
+    해당요소들을 필요에 따라 모두 선택해야 할 때 All 키워드를 함께 사용한다
+    * `변수명[index];` get~ 선택방식과 동일하게 인덱스로 2개이상의 대상 구분필요 
+## DOME + 이벤트연결
+1. `<태그 on이벤트="실행함수()"></태그>`
+    * `<button onclick="alert();">`
+    * 장점) 태그에 바로 이벤트를 작성할 수 있어서 간편
+    * 단점) 태그에 내부스크립트로 작성된거라 반복 등 활용 불가능
+    내부에서만 제한적 사용
+2. `DOM변수.addEventListener('이벤트', 실행함수());`
+    * `btn.addEventListener('click', function(){ alert(); });`
+    * `btn.addEventListener('click', func1);`
+    * `function func1(){}`
+    * 장점) 반복 활용 가능, 내부, 외부 어디든 자유롭게 사용 가능
+    * 단점) 위 1번에 비해 쓰기가 조금 복잡함
