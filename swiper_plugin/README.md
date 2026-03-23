@@ -65,3 +65,30 @@
 * 안쪽 Swiper js 옵션:값으로 아래와 같이 작성
     * `nested:true,`
     * 부모 swiper와 겹쳐 있을 때 드래그 충돌방지 옵션:값
+## Swiper Custom Function
+1. `renderFraction:funtion(){}`
+    * pagination:{} 안에 작성해야함
+    * type:'fraction' 일 때 사용 가능 
+        * `const 변수명 = new Swiper(적용대상,{`
+        `pagination:{`
+            `el:'적용대상',`
+            `type:'fraction',`
+            `renderFraction:function(current, total){`
+            `let 변수 = <태그 class=${매개변수}></태그>`
+            `return 변수;`
+            `}`
+        `}`
+    `})`
+2. 슬라이드 변경 시 실행되는 Custom 함수 `on:{}`
+* `new Swiper(대상,{옵션})` 옵션위치에 바로 작성되는 함수
+1. `init:funtion(){}`
+    * 슬라이드가 처음 시작할 때 실행되는 함수
+    * `on:{init:function(){},},`
+2. `slideChangeTransitionStart:function(){}`
+    * 슬라이드전환이 시작될때 실행되는 함수
+3. `slideChangeTransitionEnd:function(){}`
+    * 슬라이드 전환이 종료되고 실행되는 함수
+    * 초기화(reset)용도로 가끔 사용
+## 클래스 적용/해제 함수
+1. `요소.classList.add('적용클래스명');`
+2. `요소.classList.remove('삭제클래스명');`
