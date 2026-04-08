@@ -243,8 +243,8 @@ ex) <button type="button" id="btn" onclick"prompt()"></button>
     * `for(let i=5; i<=15; i++){}`
 * 5~0까지 반복
     * `for(let i=5; i<0; i--){}`
-## DOM 요소 생성, 삽입
-### textContent
+## DOM 요소 생성, 삽입, 복제
+### textContent 속성
 * 문자열데이터를 삽입할때 사용하는 속성(태그취급안함)
 * 로그인, 회원가입, 장바구니, 구매결제 등 에러 메세지 전달용
     * `p.textContent = '아이디를 입력하세요.';`
